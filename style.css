@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans Unicode';
+}
+
+body {
+    background-size: cover;
+    background-image: url(b.png);
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+header {
+    height: 15%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+button {
+    font-family: 'lucida sans unicode';
+    background-color: transparent;
+    color: lightgray;
+    border: none;
+    font-size: larger;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 10px;
+}
+
+#ustawienia {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    cursor: pointer;
+    transition: transform 0.6s;
+}
+
+#ustawienia.rotated {
+    transition: transform 0.6s;
+    transform: rotate(180deg);
+}
+
+#lista-ustawien {
+    display:none; 
+    position:absolute; 
+    top:50px; left:10px; 
+    background:rgba(0,0,0,0.8); 
+    color:white; 
+    padding:10px; 
+    border-radius:10px; 
+    list-style:none;
+}
+
+#zegar {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 22px;
+    z-index: 1000;
+}
+
+hr {
+    width: 80%;
+    border: 1px solid gray;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRO8L3M</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><h1>PRO8L3M</h1>
+        <img src="ustawienia.png" alt="motyw i czcionka" id="ustawienia" height="40px" width="40px">
+        <ul id="lista-ustawien">
+            <li>Motyw</li>
+            <li>Czcionka</li>
+        </ul>
+        <div id="zegar"></div>
+        <hr>
+        <div class="menu">
+            <button onclick="location.href='index.html'">Strona Główna</button>
+            <button onclick="location.href='dyskografia.html'">Dyskografia</button>
+            <button onclick="location.href='produkty.html'">Produkty</button>
+            <button onclick="location.href='gra.html'">Gra</button>
+        </div>
+    </header>
+    <main></main>
+    <footer></footer>
+    <script>
+const ustawienia = document.getElementById('ustawienia');
+const lista = document.getElementById('lista-ustawien');
+let otwarte = false;
+
+ustawienia.addEventListener('click', () => {
+    otwarte = !otwarte;
+    ustawienia.classList.toggle('rotated', otwarte);
+    lista.style.display = otwarte ? 'block' : 'none';
+});
+
+// ZEGAR
+function aktualizujZegar() {
+    const zegar = document.getElementById('zegar');
+    const teraz = new Date();
+    const godzina = String(teraz.getHours()).padStart(2, '0');
+    const minuta = String(teraz.getMinutes()).padStart(2, '0');
+    const sekunda = String(teraz.getSeconds()).padStart(2, '0');
+    zegar.textContent = `${godzina}:${minuta}:${sekunda}`;
+}
+setInterval(aktualizujZegar, 1000);
+aktualizujZegar();
+</script>
+</body>
+</html>
