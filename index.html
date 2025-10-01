@@ -10,7 +10,14 @@
     <header><h1>PRO8L3M</h1>
         <img src="ustawienia.png" alt="motyw i czcionka" id="ustawienia" height="40px" width="40px">
         <ul id="lista-ustawien">
-            <li>Motyw</li>
+            <li>
+                Motyw:
+                <select id="motyw-select">
+                    <option value="default">Czarny - domyślny</option>
+                    <option value="artbrut">Fioletowy</option>
+                    <option value="fairy">Niebieski</option>
+                </select>
+            </li>
             <li>Czcionka</li>
         </ul>
         <div id="zegar"></div>
@@ -22,11 +29,90 @@
             <button onclick="location.href='gra.html'">Gra</button>
         </div>
     </header>
-    <main></main>
+    <main>
+        <div class="container">
+        <h2>Popularne Wydania</h2>
+        <div id="row1">
+        <iframe 
+        data-testid="embed-iframe" 
+        style="border-radius:12px" 
+        src="https://open.spotify.com/embed/track/7gPbVDk8Es7AVHTLUFq6CU?utm_source=generator" 
+        width="45%" 
+        height="352" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+    </iframe>
+        <iframe 
+        data-testid="embed-iframe" 
+        style="border-radius:12px" 
+        src="https://open.spotify.com/embed/track/1088WwNMjp0QWvEP3aOgsf?utm_source=generator" 
+        width="45%" 
+        height="352" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+    </iframe>
+    </div>
+    <div id="row2">
+    </iframe>
+        <iframe 
+        data-testid="embed-iframe" 
+        style="border-radius:12px" 
+        src="https://open.spotify.com/embed/track/7t3iKbFf34FK5syqppOlIx?utm_source=generator" 
+        width="45%" 
+        height="352" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+    </iframe>
+    </iframe>
+        <iframe 
+        data-testid="embed-iframe" 
+        style="border-radius:12px" 
+        src="https://open.spotify.com/embed/track/2WFSy9WBAdKH8RnwL5deH2?utm_source=generator" 
+        width="45%" 
+        height="352" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+    </iframe>
+    </div>
+    <div id="row3">
+        <iframe 
+        data-testid="embed-iframe" 
+        style="border-radius:12px" 
+        src="https://open.spotify.com/embed/track/0SSzxRyRVHfVZywNMlvuIp?utm_source=generator" 
+        width="45%" 
+        height="352" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+    </iframe>
+        <iframe 
+        data-testid="embed-iframe" 
+        style="border-radius:12px" 
+        src="https://open.spotify.com/embed/track/6xon2TKhlpJCN8zP7tOp8C?utm_source=generator" 
+        width="45%" 
+        height="352" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+    </iframe>
+    </div>
+    </div>
+    </main>
     <footer></footer>
     <script>
 const ustawienia = document.getElementById('ustawienia');
 const lista = document.getElementById('lista-ustawien');
+const motywSelect = document.getElementById('motyw-select');
 let otwarte = false;
 
 ustawienia.addEventListener('click', () => {
@@ -35,7 +121,13 @@ ustawienia.addEventListener('click', () => {
     lista.style.display = otwarte ? 'block' : 'none';
 });
 
-// ZEGAR
+motywSelect.addEventListener('change', function() {
+    document.body.className = ''; // usuń stare motywy
+    if (this.value !== 'default') {
+        document.body.classList.add('motyw-' + this.value);
+    }
+});
+
 function aktualizujZegar() {
     const zegar = document.getElementById('zegar');
     const teraz = new Date();

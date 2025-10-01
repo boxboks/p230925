@@ -6,7 +6,7 @@
 
 body {
     background-size: cover;
-    background-image: url(b.png);
+    background-image: url(cz.jpg);
     background-repeat: no-repeat;
 }
 
@@ -15,13 +15,17 @@ h1 {
 }
 
 header {
+    position: fixed;
     height: 15%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    color: white    ;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    top: 0;
+    z-index: 1000;
 }
 
 .menu {
@@ -90,4 +94,122 @@ button:hover {
 hr {
     width: 80%;
     border: 1px solid gray;
+}
+
+.container {
+    width: 80%;
+    height: max-content;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+}
+
+#row1{
+    height: min-content;
+    display: flex;
+    justify-content: space-around;
+}
+
+#row2{
+    height: min-content;
+    display: flex;
+    justify-content: space-around;
+}
+
+#row3{
+    height: min-content;
+    display: flex;
+    justify-content: space-around;
+}
+
+main{
+    margin-top: 10%;
+    margin-bottom: 30px;
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+::-webkit-scrollbar-track {
+    background: #000000;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 3px solid #000000;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #ffffff;
+}
+
+body.motyw-artbrut::-webkit-scrollbar-thumb {
+    background-color: #ff4d6d;
+    border: 3px solid #1e0028;
+}
+body.motyw-artbrut::-webkit-scrollbar-thumb:hover {
+    background-color: #ff6d8a;
+}
+body.motyw-artbrut::-webkit-scrollbar-track {
+    background: #1e0028;
+}
+
+body.motyw-fairy::-webkit-scrollbar-thumb {
+    background-color: #aeeaff;
+    border: 3px solid #001e3c;
+}
+body.motyw-fairy::-webkit-scrollbar-thumb:hover {
+    background-color: #d0f1ff;
+}
+body.motyw-fairy::-webkit-scrollbar-track {
+    background: #001e3c;
+}
+
+body.motyw-artbrut {
+    background-image: url('c.jpg');
+    color: #ff4d6d;
+}
+body.motyw-artbrut .container,
+body.motyw-artbrut header {
+    background: rgba(30, 0, 40, 0.7);
+}
+body.motyw-artbrut button {
+    color: #ff4d6d;
+}
+body.motyw-artbrut button:hover {
+    background-color: rgba(255, 77, 109, 0.2);
+    color: #fff;
+}
+
+body.motyw-artbrut #ustawienia,
+body:not(.motyw-artbrut):not(.motyw-fairy) #ustawienia {
+    filter: brightness(10) invert(1);
+}
+
+body.motyw-fairy {
+    background-image: url('b.png');
+    color: #aeeaff;
+}
+body.motyw-fairy .container,
+body.motyw-fairy header {
+    background: rgba(0, 30, 60, 0.7);
+}
+body.motyw-fairy button {
+    color: #aeeaff;
+}
+body.motyw-fairy button:hover {
+    background-color: rgba(174, 234, 255, 0.2);
+    color: #001e3c;
+}
+body.motyw-fairy #ustawienia {
+    filter: brightness(1.5) invert(0.2);
 }
