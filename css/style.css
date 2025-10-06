@@ -284,3 +284,25 @@ ul.single-list{
     width: min-content;
     color: white;
 }
+
+#reset-czcionka {
+    margin-left: 8px;
+}
+
+#cover {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.produkty {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+#kup {
+    width: auto;
+}

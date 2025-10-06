@@ -4,14 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRO8L3M - produkty</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="..\css\style.css">
 </head>
 <body>
-    <header><h1>PRO8L3M - Produkty</h1>
-        <img src="ustawienia.png" alt="motyw i czcionka" id="ustawienia" height="40px" width="40px">
+    <header><h1>PRO8L3M</h1>
+        <img src="../pics/ustawienia.png" alt="motyw i czcionka" id="ustawienia" height="40px" width="40px">
         <ul id="lista-ustawien">
-            <li>Motyw</li>
-            <li>Czcionka</li>
+            <li id="motyw-li">
+                Motyw:
+                <select id="motyw-select">
+                    <option value="default">Czarny - domyślny</option>
+                    <option value="fiolet">Fioletowy</option>
+                    <option value="niebieski">Niebieski</option>
+                </select>
+            </li>
+            <li id="motyw-li">Czcionka
+                <select id="czcionka-select">
+                    <option value="16">Domyślny</option>
+                    <option value="18">Większy</option>
+                    <option value="20">Duży</option>
+                    <option value="24">Bardzo duży</option>
+                </select>
+                <button id="reset-czcionka" type="button">Reset</button>
+            </li>
         </ul>
         <div id="zegar"></div>
         <hr>
@@ -22,11 +37,28 @@
             <button onclick="location.href='gra.html'">Gra</button>
         </div>
     </header>
-    <main></main>
+    <main>
+        <div class="container">
+            <h2>Produkty PRO8L3M</h2>
+            <div class="produkty">
+                <aside>
+                <img src="../pics/PROBLEM-COVERRR.jpg" alt="" id="cover">
+                <p>EX UMBRA AD LIBERTATEM PREORDER</p>
+                </aside>
+                <nav>
+                <img src="../pics/PROBLEM-COVERRR.jpg" alt="" id="cover">
+                </nav>
+            </div>
+            <button id="kup">kup</button>
+        </div>
+    </main>
     <footer></footer>
     <script>
 const ustawienia = document.getElementById('ustawienia');
 const lista = document.getElementById('lista-ustawien');
+const motywSelect = document.getElementById('motyw-select');
+const czcionkaSelect = document.getElementById('czcionka-select');
+const resetCzcionkaBtn = document.getElementById('reset-czcionka');
 let otwarte = false;
 
 ustawienia.addEventListener('click', () => {
@@ -35,7 +67,22 @@ ustawienia.addEventListener('click', () => {
     lista.style.display = otwarte ? 'block' : 'none';
 });
 
-// ZEGAR
+motywSelect.addEventListener('change', function() {
+    document.body.className = '';
+    if (this.value !== 'default') {
+        document.body.classList.add('motyw-' + this.value);
+    }
+});
+
+czcionkaSelect.addEventListener('change', function() {
+    document.documentElement.style.fontSize = this.value + 'px';
+});
+
+resetCzcionkaBtn.addEventListener('click', function() {
+    document.documentElement.style.fontSize = '16px';
+    czcionkaSelect.value = '16';
+});
+
 function aktualizujZegar() {
     const zegar = document.getElementById('zegar');
     const teraz = new Date();
