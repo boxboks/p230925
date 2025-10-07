@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="..\css\style.css">
 </head>
 <body>
+    <div id="background"></div>
     <header><h1>PRO8L3M</h1>
         <img src="../pics/ustawienia.png" alt="motyw i czcionka" id="ustawienia" height="40px" width="40px">
         <ul id="lista-ustawien">
@@ -18,7 +19,15 @@
                     <option value="niebieski">Niebieski</option>
                 </select>
             </li>
-            <li id="motyw-li">Czcionka</li>
+            <li id="motyw-li">Czcionka
+                <select id="czcionka-select">
+                    <option value="16">Domyślny</option>
+                    <option value="18">Większy</option>
+                    <option value="20">Duży</option>
+                    <option value="24">Bardzo duży</option>
+                </select>
+                <button id="reset-czcionka" type="button">Reset</button>
+            </li>
         </ul>
         <div id="zegar"></div>
         <hr>
@@ -185,6 +194,9 @@
 const ustawienia = document.getElementById('ustawienia');
 const lista = document.getElementById('lista-ustawien');
 const motywSelect = document.getElementById('motyw-select');
+const czcionkaSelect = document.getElementById('czcionka-select');
+const resetCzcionkaBtn = document.getElementById('reset-czcionka');
+const background = document.getElementById('background');
 let otwarte = false;
 
 ustawienia.addEventListener('click', () => {
@@ -194,10 +206,21 @@ ustawienia.addEventListener('click', () => {
 });
 
 motywSelect.addEventListener('change', function() {
-    document.body.className = ''; // usuń stare motywy
+    document.body.className = '';
+    background.className = '';
     if (this.value !== 'default') {
         document.body.classList.add('motyw-' + this.value);
+        background.classList.add('motyw-' + this.value);
     }
+});
+
+czcionkaSelect.addEventListener('change', function() {
+    document.documentElement.style.fontSize = this.value + 'px';
+});
+
+resetCzcionkaBtn.addEventListener('click', function() {
+    document.documentElement.style.fontSize = '16px';
+    czcionkaSelect.value = '16';
 });
 
 function aktualizujZegar() {
