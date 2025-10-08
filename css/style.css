@@ -68,7 +68,7 @@ button {
 button:hover {
     background-color: rgba(255, 255, 255, 0.3);
     color: white;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 
 #ustawienia {
@@ -319,8 +319,28 @@ ul.single-list{
     margin-top: 20px;
 }
 
-#kup {
-    width: auto;
+#kup1 {
+    width: 100px;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: relative;
+    top: 50px;
+}
+
+#kup2 {
+    width: 100px;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: relative;
+}
+
+button#kup1:hover, button#kup2:hover {
+    font-family: 'lucida sans unicode';
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    border: none;
+    font-size: larger;
+    cursor: pointer;
 }
 
 #prod {
@@ -329,4 +349,70 @@ ul.single-list{
 
 .note{
     color: black;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+}
+
+#bp {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+canvas#gameCanvas {
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: block;
+    margin: 20px auto;
+}
+
+#zamowienie{
+    width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.container#zamownienia{
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+}
+
+nav#nazwa{
+    width: 50%;
+    top: 0px;
+    height: 100%;
+    display: flex;;
+    flex-direction: column;
+    gap: 100px;
+}
+
+aside#zdjecie{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#opis{
+    text-align: justify;
+    margin: 0 50px;
 }
