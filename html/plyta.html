@@ -40,14 +40,19 @@
     </header>
     <main>
         <div class="container" id="zamownienia">
+            <a href="../html/produkty.html" style="position: absolute; left: 190px; top: 200px;"><button>Powrót</button><img id="back" src="../pics/back.png" alt="" height="15px"></a> 
             <div class="form">
-                <aside>
-                    <img src="../pics/PROBLEM-COVERRR.jpg" alt="" id="zamowienie">
-                </aside>
-                <nav id="nazwa">
+                <div class="zdj">
+                    <img src="../pics/PROBLEM-COVERRR.jpg" alt="" id="zamowienie" style="cursor:pointer;">
+                    <div class="min">
+                        <img src="../pics/EUAL-PRE-Sticker-pack.png" alt="" height="100px" style="border-radius: 7px; cursor:pointer;" class="miniaturka">
+                        <img src="../pics/PROBLEM-COVERRR.jpg" alt="" height="100px" style="border-radius: 7px; cursor:pointer;" class="miniaturka">
+                    </div>
+                </div>
+                <div id="nazwa">
                     <h3 style="color: white; font-size: 30px;">EX UMBRA AD LIBERTATEM PREORDER</h3>
                     <button style="border: solid 3px black; border-radius: 7px; width: 200px;">ZAMÓW</button>
-                </nav>
+                </div>
             </div>
             <p id="opis"><i>Z mroku ku wolności.</i> <br><br>
             Kilkanaście nowych numerów zamknięte w kawałku plastiku. Wersję preorder odróżniają książeczka z tekstami Oskara, wyjątkowy sticker pack oraz detale opakowania.</p>
@@ -97,6 +102,15 @@ function aktualizujZegar() {
 }
 setInterval(aktualizujZegar, 1000);
 aktualizujZegar();
+
+const zamowienieImg = document.getElementById('zamowienie');
+const miniaturki = document.querySelectorAll('.miniaturka');
+
+miniaturki.forEach(function(mini) {
+    mini.addEventListener('click', function() {
+        zamowienieImg.src = this.src;
+    });
+});
 </script>
 </body>
 </html>

@@ -9,10 +9,6 @@ body, html {
     height: 100%;
     margin: 0;
     padding: 0;
-    /* background-size: cover;
-    background-image: url('../pics/ground-zero.jpg');
-    background-position: center;
-    background-repeat: no-repeat; */
 }
 
 #background {
@@ -100,9 +96,10 @@ button:hover {
     top: 10px;
     right: 20px;
     color: white;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.3);
     padding: 8px 16px;
-    border-radius: 10px;
+    border-radius: 100px;
+    font-family: 'Lucida Sans Unicode';
     font-size: 22px;
     z-index: 1000;
 }
@@ -224,10 +221,10 @@ body.motyw-niebieski button {
 }
 body.motyw-niebieski button:hover {
     background-color: rgba(174, 234, 255, 0.2);
-    color: #001e3c;
+    color: #c5d0da;
 }
 body.motyw-niebieski #ustawienia {
-    filter: brightness(1.5) invert(0.2);
+    filter: brightness(10) invert(1);
 }
 
 .album-section {
@@ -314,7 +311,7 @@ ul.single-list{
 .produkty {
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 150px;
     flex-wrap: wrap;
     margin-top: 20px;
 }
@@ -384,7 +381,6 @@ canvas#gameCanvas {
     color: white;
     display: flex;
     justify-content: center;
-    flex-direction: column;
     text-align: center;
     gap: 20px;
 }
@@ -392,17 +388,17 @@ canvas#gameCanvas {
 .form{
     display: flex;
     justify-content: center;
+    flex-direction: row;
     align-items: center;
-    gap: 150px;
 }
 
-nav#nazwa{
+#nazwa{
     width: 50%;
-    top: 0px;
-    height: 100%;
-    display: flex;;
+    height: 420px;
+    display: flex;
+    align-items: end;
     flex-direction: column;
-    gap: 100px;
+    gap: 350px;
 }
 
 aside#zdjecie{
@@ -413,6 +409,24 @@ aside#zdjecie{
 }
 
 #opis{
-    text-align: justify;
-    margin: 0 50px;
+    text-align: center;
+    margin: 10px 200px;
+    width: 70%;
+}
+
+.zdj {
+    display: flex;
+    flex-direction: row;
+}
+
+.min{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+    justify-content: flex-end;
+}
+
+#back{
+    filter: brightness(10) invert(0.8);
 }
