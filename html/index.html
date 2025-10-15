@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="..\css\style.css">
 </head>
 <body>
+    <div id="cookieConsent" style="display: none;">
+            <p>Ta strona używa plików cookie do personalizacji treści. Czy akceptujesz?</p>
+            <button onclick="akceptujCookie()">Akceptuj</button>
+            <button onclick="odrzucCookie()">Odrzuć</button>
+        </div>
     <div id="background"></div>
     <header><h1>PRO8L3M</h1>
-        <img src="../pics/ustawienia.png" alt="motyw i czcionka" id="ustawienia" height="40px" width="40px">
+        <img src="../pics/ustawienia.png" alt="motyw i czcionka" id="ustawienia" height="40px" width="40px" tabindex="0">
         <ul id="lista-ustawien">
             <li id="motyw-li">
                 Motyw:
@@ -161,6 +166,29 @@ function aktualizujZegar() {
 }
 setInterval(aktualizujZegar, 1000);
 aktualizujZegar();
+
+function sprawdzZgodę() {
+    let zgoda = pobierzCookie("cookieConsent");
+    if (!zgoda) {
+        document.getElementById("cookieConsent").style.display = "block";
+    } else if (zgoda === "accepted") {
+        pokazRekomendacje();
+    } else {
+        document.getElementById("rekomendacja").innerHTML = "Pliki cookie zostały odrzucone. Nie wyświetlamy personalizowanych treści.";
+    }
+}
+
+function akceptujCookie() {
+    ustawCookieZgody("accepted");
+    document.getElementById("cookieConsent").style.display = "none";  
+    pokazRekomendacje();  
+}
+
+function odrzucCookie() {
+    ustawCookieZgody("rejected");
+    document.getElementById("cookieConsent").style.display = "none";
+    document.getElementById("rekomendacja").innerHTML = "Pliki cookie zostały odrzucone. Nie wyświetlamy personalizowanych treści.";
+}
 </script>
 </body>
 </html>
