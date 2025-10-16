@@ -189,6 +189,22 @@ function odrzucCookie() {
     document.getElementById("cookieConsent").style.display = "none";
     document.getElementById("rekomendacja").innerHTML = "Pliki cookie zostały odrzucone. Nie wyświetlamy personalizowanych treści.";
 }
+
+function ustawCookieZgody(value) {
+    document.cookie = "cookieConsent=" + value + "; path=/; max-age=31536000";
+}
+
+function pobierzCookie(name) {
+    let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    if (match) return match[2];
+    return null;
+}
+
+function pokazRekomendacje() {
+    document.getElementById("rekomendacja").innerHTML = "Dziękujemy za akceptację plików cookie! Oto Twoje rekomendacje.";
+}
+
+window.onload = sprawdzZgodę;
 </script>
 </body>
 </html>

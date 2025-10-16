@@ -428,7 +428,7 @@ aside#zdjecie{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-left: 20px;
     justify-content: flex-start;
 }
