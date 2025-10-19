@@ -433,12 +433,22 @@ aside#zdjecie{
     justify-content: flex-start;
 }
 
-.min {
+#plyta{
     height: 450px;
     width: auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-left: 20px;
+    justify-content: flex-start;
+}
+.min{
+    height: 450px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: scroll;
     margin-left: 20px;
     justify-content: flex-start;
 }
