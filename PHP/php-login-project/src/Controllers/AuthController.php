@@ -26,7 +26,11 @@ class AuthController
             $password = $_POST['password'] ?? '';
 
             if ($this->auth->login($username, $password)) {
+<<<<<<< Updated upstream
                 header('Location: ..\PHP\index.php');
+=======
+                header('Location: ../../index.php');
+>>>>>>> Stashed changes
                 exit;
             } else {
                 echo "Invalid credentials.";

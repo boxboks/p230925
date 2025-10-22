@@ -32,6 +32,9 @@
         <div id="zegar"></div>
         <hr>
         <div class="menu">
+            <div class="logout">
+                <button onclick="location.href='php-login-project/public/login.php'">Wyloguj</button>
+            </div>
             <button onclick="location.href='index.php'">Strona Główna</button>
             <button onclick="location.href='dyskografia.php'">Dyskografia</button>
             <button onclick="location.href='produkty.php'">Produkty</button>

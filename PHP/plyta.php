@@ -1,3 +1,40 @@
+<?php
+// Połączenie z bazą danych (zakładam MySQL, dostosuj dane do swoich ustawień)
+$servername = "localhost";
+$username = "root"; // Zmień na swoją nazwę użytkownika
+$password = ""; // Zmień na swoje hasło
+$dbname = "pro8l3m"; // Zmień na nazwę swojej bazy danych
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Sprawdź połączenie
+if ($conn->connect_error) {
+    die("Połączenie nieudane: " . $conn->connect_error);
+}
+
+// Obsługa formularza zamówienia (po wysłaniu POST)
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_order'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $quantity = (int)$_POST['quantity']; // Ilość jako integer
+    $payment = $_POST['payment']; // Metoda płatności
+    $product = "EX UMBRA AD LIBERTATEM PREORDER"; // Stały produkt
+    $price_per_unit = 69; // Cena za sztukę w zł
+    $total_price = $price_per_unit * $quantity; // Całkowita cena
+
+    // Przygotuj zapytanie INSERT (zakładam tabelę 'orders' z kolumnami: id (auto_increment), name, email, address, quantity, payment_method, product, price_per_unit, total_price, order_date)
+    $sql = "INSERT INTO orders (name, email, address, quantity, payment_method, product, price_per_unit, total_price, order_date) VALUES ('$name', '$email', '$address', $quantity, '$payment', '$product', $price_per_unit, $total_price, NOW())";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "<script>alert('Zamówienie zostało złożone pomyślnie! Całkowita cena: " . $total_price . "zł');</script>";
+    } else {
+        echo "<script>alert('Błąd podczas składania zamówienia: " . $conn->error . "');</script>";
+    }
+}
+
+// Zamknij połączenie na końcu strony (ale nie tutaj, bo strona się kończy)
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -5,6 +42,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRO8L3M</title>
     <link rel="stylesheet" href="..\css\style.css">
+    <style>
+        h3{
+            color: white;
+            font-size: 24px;
+        }
+
+        input{
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
     <div id="background"></div>
@@ -32,6 +79,9 @@
         <div id="zegar"></div>
         <hr>
         <div class="menu">
+            <div class="logout">
+                <button onclick="location.href='php-login-project/public/login.php'">Wyloguj</button>
+            </div>
             <button onclick="location.href='index.php'">Strona Główna</button>
             <button onclick="location.href='dyskografia.php'">Dyskografia</button>
             <button onclick="location.href='produkty.php'">Produkty</button>
@@ -53,13 +103,41 @@
                     <h3 style="color: white; font-size: 30px;">EX UMBRA AD LIBERTATEM PREORDER</h3>
                     <h4 style="color: white;">69zł</h4>
                     <aside style="position: absolute; right: 30px; top: 300px;">
-                        <button style="border: solid 3px black; border-radius: 7px; width: 200px; background-color: rgba(255,255,255,0.7); color: black;">ZAMÓW</button>
+                        <button onclick="showOrderForm()" style="border: solid 3px black; border-radius: 7px; width: 200px; background-color: rgba(255,255,255,0.7); color: black;">ZAMÓW</button>
                     </aside>
                 </div>
             </div>
             <p id="opis"><i>Z mroku ku wolności.</i> <br><br>
             Kilkanaście nowych numerów zamknięte w kawałku plastiku. Wersję preorder odróżniają książeczka z tekstami Oskara, wyjątkowy sticker pack oraz detale opakowania.</p>
-    </div>
+
+            <!-- Formularz zamówienia (ukryty domyślnie) -->
+            <div id="order-form" style="display: none; margin-top: 20px; padding: 20px; background-color: rgba(0,0,0,0.8); border-radius: 10px; color: white;">
+                <h3>Złóż zamówienie</h3>
+                <form action="" method="post">
+                    <label for="name">Imię i nazwisko:</label><br>
+                    <input type="text" id="name" name="name" required style="width: 100%; margin-bottom: 10px;"><br>
+                    
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required style="width: 100%; margin-bottom: 10px;"><br>
+                    
+                    <label for="address">Adres dostawy:</label><br>
+                    <textarea id="address" name="address" required style="width: 100%; height: 80px; margin-bottom: 10px;"></textarea><br>
+                    
+                    <label for="quantity">Ilość:</label><br>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1" required style="width: 100%; margin-bottom: 10px;"><br>
+                    
+                    <label for="payment">Metoda płatności:</label><br>
+                    <select id="payment" name="payment" required style="width: 100%; margin-bottom: 10px;">
+                        <option value="przelew">Przelew bankowy</option>
+                        <option value="karta">Karta kredytowa</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="pobranie">Za pobraniem</option>
+                    </select><br>
+                    
+                    <button type="submit" name="submit_order" style="background-color: #fff; color: #000; border: none; padding: 10px 20px; border-radius: 5px;">Złóż zamówienie</button>
+                </form>
+            </div>
+        </div>
     </main>
     <footer></footer>
     <script>
@@ -114,6 +192,15 @@ miniaturki.forEach(function(mini) {
         zamowienieImg.src = this.src;
     });
 });
+
+// Funkcja do pokazywania formularza zamówienia
+function showOrderForm() {
+    document.getElementById('order-form').style.display = 'block';
+}
 </script>
 </body>
 </html>
+<?php
+// Zamknij połączenie z bazą danych na końcu
+$conn->close();
+?>
