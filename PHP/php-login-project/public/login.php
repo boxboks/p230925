@@ -25,45 +25,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<<<<<<< Updated upstream
-<html lang="en">
-=======
 <html lang="pl">
->>>>>>> Stashed changes
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-<<<<<<< Updated upstream
-</head>
-<body>
-    <h2>Login</h2>
-=======
     <link rel="stylesheet" href="..\..\..\css\style.css">
 </head>
 <body>
     <div class="login_background"></div>
     <div class="login">
     <h2 style="color:white;">Login</h2>
->>>>>>> Stashed changes
     <?php if (isset($error)): ?>
         <p style="color: red;"><?php echo $error; ?></p>
     <?php endif; ?>
     <form action="login.php" method="POST">
-<<<<<<< Updated upstream
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div>
-            <button type="submit">Login</button>
-        </div>
-    </form>
-=======
         <div style="margin-bottom: 10px;">
             <label for="username" style="color:white;">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -77,6 +53,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </form>
     </div>
->>>>>>> Stashed changes
 </body>
 </html>
