@@ -530,3 +530,18 @@ aside#zdjecie{
     position: absolute;
     left: 20px;
 }
+
+#tictactoe-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#gry{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 150px;
+    margin-top: 20px;
+}

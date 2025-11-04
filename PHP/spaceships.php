@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRO8L3M - produkty</title>
+    <title>PRO8L3M</title>
     <link rel="stylesheet" href="..\css\style.css">
 </head>
 <body>
@@ -38,23 +38,17 @@
             <button onclick="location.href='index.php'">Strona Główna</button>
             <button onclick="location.href='dyskografia.php'">Dyskografia</button>
             <button onclick="location.href='produkty.php'">Produkty</button>
-            <button onclick="location.href='gry.php'">Gry</button>
+            <button onclick="location.href='gra.php'">Gra</button>
         </div>
     </header>
     <main>
         <div class="container">
-            <h2>Produkty PRO8L3M</h2>
-            <div class="produkty">
-                <aside>
-                    <a href="../PHP/plyta.php"><button id="bp"><img src="../pics/PROBLEM-COVERRR.jpg" alt="" id="cover"></button></a> 
-                    <p id="prod">EX UMBRA AD LIBERTATEM PREORDER</p>
-                </aside>
-                <nav>
-                    <a href="../PHP/zestaw.php"><button id="bp"><img src="../pics/PROBLEM-COVERRR.jpg" alt="" id="cover"></button></a>
-                    <p id="prod">PŁYTA EX UMBRA AD LIBERTATEM + ZESTAW LOCKPICKING P8M x MOK WORKSHOP PREORDER</p>
-                </nav>
-            </div>
-        </div>
+            <h1>SpaceShips</h1>
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="score">Score: 0</div>
+        <button id="startButton">Start Game</button>
+        <script src="../JS/game.js"></script>
+    </div>
     </main>
     <footer></footer>
     <script>
@@ -63,6 +57,7 @@ const lista = document.getElementById('lista-ustawien');
 const motywSelect = document.getElementById('motyw-select');
 const czcionkaSelect = document.getElementById('czcionka-select');
 const resetCzcionkaBtn = document.getElementById('reset-czcionka');
+const background = document.getElementById('background');
 let otwarte = false;
 
 ustawienia.addEventListener('click', () => {

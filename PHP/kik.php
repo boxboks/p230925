@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="background"></div>
-    <header><h1>CHILL ROOM</h1>
+    <header><h1>PRO8L3M</h1>
         <img src="../pics/ustawienia.png" alt="motyw i czcionka" id="ustawienia" height="40px" width="40px">
         <ul id="lista-ustawien">
             <li id="motyw-li">
@@ -33,21 +33,35 @@
         <hr>
         <div class="menu">
             <div class="logout">
-                <button onclick="location.href='php-login-project/public/login.php'">Wyloguj</button>
+                <button onclick="location.href='php-login-project/public/login.php'"><img src="../pics/logout.png" alt="" height="60px" style="filter: brightness(10) invert(1);"></button>
             </div>
             <button onclick="location.href='index.php'">Strona Główna</button>
             <button onclick="location.href='dyskografia.php'">Dyskografia</button>
             <button onclick="location.href='produkty.php'">Produkty</button>
-            <button onclick="location.href='gra.php'">Gra</button>
+            <button onclick="location.href='gry.php'">Gry</button>
         </div>
     </header>
     <main>
         <div class="container">
-            <h1>SpaceShips</h1>
-        <canvas id="gameCanvas" width="800" height="600"></canvas>
-        <div id="score">Score: 0</div>
-        <button id="startButton">Start Game</button>
-        <script src="../JS/game.js"></script>
+            <h1>Kółko i Krzyżyk</h1>
+            <div id="tictactoe-app">
+                <div id="status">Turn: X</div>
+                <div id="board" class="board">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+                <div class="controls">
+                    <button id="restartBtn" type="button">Restart</button>
+                </div>
+            </div>
+        <script src="../JS/tictactoe.js"></script>
     </div>
     </main>
     <footer></footer>

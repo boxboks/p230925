@@ -38,12 +38,12 @@
         <hr>
         <div class="menu">
             <div class="logout">
-                <button onclick="location.href='php-login-project/public/login.php'">Wyloguj</button>
+                <button onclick="location.href='php-login-project/public/login.php'"><img src="../pics/logout.png" alt="" height="60px" style="filter: brightness(10) invert(1);"></button>
             </div>
             <button onclick="location.href='index.php'">Strona Główna</button>
             <button onclick="location.href='dyskografia.php'">Dyskografia</button>
             <button onclick="location.href='produkty.php'">Produkty</button>
-            <button onclick="location.href='gra.php'">Gra</button>
+            <button onclick="location.href='gry.php'">Gry</button>
         </div>
     </header>
     <main>

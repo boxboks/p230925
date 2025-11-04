@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRO8L3M - produkty</title>
+    <title>PRO8L3M</title>
     <link rel="stylesheet" href="..\css\style.css">
 </head>
 <body>
+    <div id="cookieConsent" style="display: none;">
+            <p>Ta strona używa plików cookie do personalizacji treści. Czy akceptujesz?</p>
+            <button onclick="akceptujCookie()">Akceptuj</button>
+            <button onclick="odrzucCookie()">Odrzuć</button>
+        </div>
     <div id="background"></div>
     <header><h1>PRO8L3M</h1>
-        <img src="../pics/ustawienia.png" alt="motyw i czcionka" id="ustawienia" height="40px" width="40px">
+        <img src="../pics/ustawienia.png" alt="motyw i czcionka" id="ustawienia" height="40px" width="40px" tabindex="0">
         <ul id="lista-ustawien">
             <li id="motyw-li">
                 Motyw:
@@ -43,18 +48,18 @@
     </header>
     <main>
         <div class="container">
-            <h2>Produkty PRO8L3M</h2>
-            <div class="produkty">
-                <aside>
-                    <a href="../PHP/plyta.php"><button id="bp"><img src="../pics/PROBLEM-COVERRR.jpg" alt="" id="cover"></button></a> 
-                    <p id="prod">EX UMBRA AD LIBERTATEM PREORDER</p>
-                </aside>
-                <nav>
-                    <a href="../PHP/zestaw.php"><button id="bp"><img src="../pics/PROBLEM-COVERRR.jpg" alt="" id="cover"></button></a>
-                    <p id="prod">PŁYTA EX UMBRA AD LIBERTATEM + ZESTAW LOCKPICKING P8M x MOK WORKSHOP PREORDER</p>
-                </nav>
-            </div>
-        </div>
+        <h2>Wybierz grę w którą chcesz zagrać</h2>
+        <aside id="gry">
+            <nav>
+            <h2>Spaceships</h2>
+            <a href="../PHP/spaceships.php"><img src="../pics/spaceships.png" alt="" height="300px"></a>
+            </nav>
+            <nav>
+            <h2>Kółko i krzyżyk</h2>
+            <a href="../PHP/kik.php"><img src="../pics/kik.png" alt="" height="300px"></a>
+            </nav>
+        </aside>
+    </div>
     </main>
     <footer></footer>
     <script>
@@ -63,6 +68,7 @@ const lista = document.getElementById('lista-ustawien');
 const motywSelect = document.getElementById('motyw-select');
 const czcionkaSelect = document.getElementById('czcionka-select');
 const resetCzcionkaBtn = document.getElementById('reset-czcionka');
+const background = document.getElementById('background');
 let otwarte = false;
 
 ustawienia.addEventListener('click', () => {
@@ -99,6 +105,45 @@ function aktualizujZegar() {
 }
 setInterval(aktualizujZegar, 1000);
 aktualizujZegar();
+
+function sprawdzZgodę() {
+    let zgoda = pobierzCookie("cookieConsent");
+    if (!zgoda) {
+        document.getElementById("cookieConsent").style.display = "block";
+    } else if (zgoda === "accepted") {
+        pokazRekomendacje();
+    } else {
+        document.getElementById("rekomendacja").innerHTML = "Pliki cookie zostały odrzucone. Nie wyświetlamy personalizowanych treści.";
+    }
+}
+
+function akceptujCookie() {
+    ustawCookieZgody("accepted");
+    document.getElementById("cookieConsent").style.display = "none";  
+    pokazRekomendacje();  
+}
+
+function odrzucCookie() {
+    ustawCookieZgody("rejected");
+    document.getElementById("cookieConsent").style.display = "none";
+    document.getElementById("rekomendacja").innerHTML = "Pliki cookie zostały odrzucone. Nie wyświetlamy personalizowanych treści.";
+}
+
+function ustawCookieZgody(value) {
+    document.cookie = "cookieConsent=" + value + "; path=/; max-age=31536000";
+}
+
+function pobierzCookie(name) {
+    let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    if (match) return match[2];
+    return null;
+}
+
+function pokazRekomendacje() {
+    document.getElementById("rekomendacja").innerHTML = "Dziękujemy za akceptację plików cookie! Oto Twoje rekomendacje.";
+}
+
+window.onload = sprawdzZgodę;
 </script>
 </body>
 </html>
