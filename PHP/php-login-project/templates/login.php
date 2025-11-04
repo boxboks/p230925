@@ -20,5 +20,8 @@
             <button type="submit">Login</button>
         </div>
     </form>
+    <p style="margin-top:10px;">
+        <button type="button" onclick="window.location.href='../public/register.php'" style="background:#1e90ff;color:white;padding:8px 12px;border:none;border-radius:4px;cursor:pointer;">Zarejestruj się</button>
+    </p>
 </body>
 </html>

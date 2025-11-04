@@ -89,6 +89,7 @@ button:hover {
     padding:10px; 
     border-radius:10px; 
     list-style:none;
+    z-index: 1000;
 }
 
 #zegar {
@@ -514,7 +515,7 @@ aside#zdjecie{
     cursor: pointer;
 }
 
-#username, #password{
+#username, #password, #confirm{
     position: relative;
     left: 10px;
     width: 90%;

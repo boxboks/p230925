@@ -18,10 +18,12 @@ $authController = new \App\Controllers\AuthController();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // kontroler sam czyta $_POST, więc wywołaj bez argumentów
     $authController->login();
-    // jeśli kontroler przekierowuje przy sukcesie, poniżej możesz
-    // dopisać obsługę błędu, np. pobrać komunikat z sesji lub wyświetlić
-    // statyczny komunikat — tutaj nic więcej nie trzeba robić
 }
+
+// Pobierz komunikaty z sesji (jeśli są)
+$error = $_SESSION['error'] ?? null;
+$success = $_SESSION['success'] ?? null;
+unset($_SESSION['error'], $_SESSION['success']);
 ?>
 
 <!DOCTYPE html>
@@ -36,8 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="login_background"></div>
     <div class="login">
     <h2 style="color:white;">Login</h2>
-    <?php if (isset($error)): ?>
-        <p style="color: red;"><?php echo $error; ?></p>
+    <?php if ($error): ?>
+        <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
+    <?php endif; ?>
+    <?php if ($success): ?>
+        <p style="color: lightgreen;"><?php echo htmlspecialchars($success); ?></p>
     <?php endif; ?>
     <form action="login.php" method="POST">
         <div style="margin-bottom: 10px;">
@@ -52,6 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" id="login_button">Login</button>
         </div>
     </form>
+    <p style="margin-top:10px;">
+        <button type="button" onclick="window.location.href='register.php'" style="background:#1e90ff;color:white;padding:8px 12px;border:none;border-radius:4px;cursor:pointer;">Zarejestruj się</button>
+    </p>
     </div>
 </body>
 </html>

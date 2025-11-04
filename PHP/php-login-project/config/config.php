@@ -1,17 +1,15 @@
 <?php
-// Configuration settings for the PHP login project
 
-// Database connection settings
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'your_database_name');
-define('DB_USER', 'your_database_user');
-define('DB_PASS', 'your_database_password');
+define('DB_HOST', '127.0.0.1');
+define('DB_NAME', 'pro8l3m');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 
-// Session settings
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+	session_start();
+}
 define('SESSION_NAME', 'user_session');
-define('SESSION_TIMEOUT', 3600); // 1 hour
+define('SESSION_TIMEOUT', 3600);
 
-// Other configurations
-define('BASE_URL', 'http://yourdomain.com/php-login-project/public');
+define('BASE_URL', 'http://localhost/php-login-project/public');
 ?>
