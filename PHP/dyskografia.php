@@ -33,7 +33,7 @@
         <hr>
         <div class="menu">
             <div class="logout">
-                <button onclick="location.href='php-login-project/public/login.php'"><img src="../pics/logout.png" alt="" height="60px" style="filter: brightness(10) invert(1);"></button>
+                <button onclick="location.href='php-login-project/public/login.php'" id="logout"><img src="../pics/logout.png" alt="" height="60px" style="filter: brightness(10) invert(1);"></button>
             </div>
             <button onclick="location.href='index.php'">Strona Główna</button>
             <button onclick="location.href='dyskografia.php'">Dyskografia</button>
@@ -42,49 +42,54 @@
         </div>
     </header>
     <main>
-        <div class="container">
-    <h2>Dyskografia PRO8L3M</h2>
-    <p style="text-align: center; font-size: 1.1em;">Poniżej znajdziesz kompletną dyskografię duetu PRO8L3M (Oskar i Steez), w tym albumy studyjne, mixtape'y, EP-ki oraz wybrane single i współprace. Informacje oparte na oficjalnych wydawnictwach. Daty premiery podane w formacie rok-miesiąc-dzień, gdzie dostępne.</p>
+        <div class="container" id="dyskografia">
+            <h2>Dyskografia PRO8L3M</h2>
+            <p style="text-align: center; font-size: 1.1em;" id="dyskografia">Poniżej znajdziesz kompletną dyskografię duetu PRO8L3M (Oskar i Steez), w tym albumy studyjne, mixtape'y, EP-ki oraz wybrane single i współprace. Informacje oparte na oficjalnych wydawnictwach. Daty premiery podane w formacie rok-miesiąc-dzień, gdzie dostępne.</p>
 
-    <section>
         <h2>Albumy studyjne</h2>
-        
-        <div class="album-section">
-            <h3>Art Brut</h3>
-            <p id="p"><strong>Data premiery:</strong> 2014-10-31</p>
-            <p id="p"><strong>Wydawca:</strong> Self-released / 700Blond Records</p>
-            <h4>Tracklista:</h4>
-            <ol class="tracklist">
-                <li>Intro</li>
-                <li>Art Brut</li>
-                <li>W samo południe</li>
-                <li>Gang</li>
-                <li>Podróże po orbitach</li>
-                <li>1996</li>
-                <li>Flava w twojej twarzy</li>
-                <li>2014</li>
-                <li>Outro</li>
-            </ol>
-        </div>
+        <section>
+            <div class="album-section">
+                <aside>
+                <h3>Art Brut</h3>
+                <p id="p"><strong>Data premiery:</strong> 2014-10-31</p>
+                <p id="p"><strong>Wydawca:</strong> Self-released / 700Blond Records</p>
+                <h4>Tracklista:</h4>
+                <ol class="tracklist">
+                    <li>Intro</li>
+                    <li>Art Brut</li>
+                    <li>W samo południe</li>
+                    <li>Gang</li>
+                    <li>Podróże po orbitach</li>
+                    <li>1996</li>
+                    <li>Flava w twojej twarzy</li>
+                    <li>2014</li>
+                    <li>Outro</li>
+                </ol>
+                </aside>
+            </div>
 
+            <div class="album-section">
+                <aside>
+                <h3>C30-C39</h3>
+                <p id="p"><strong>Data premiery:</strong> 2016-11-18</p>
+                <p id="p"><strong>Wydawca:</strong> 700Blond Records</p>
+                <h4>Tracklista:</h4>
+                <ol class="tracklist">
+                    <li>C30-C39</li>
+                    <li>Eurogeddon</li>
+                    <li>2016</li>
+                    <li>Podróże po orbitach (Mixtape Version)</li>
+                    <li>Ground Zero</li>
+                    <li>Flava w twojej twarzy (Mixtape Version)</li>
+                    <li>1996 (Mixtape Version)</li>
+                    <li>Outro 2016</li>
+                </ol>
+                </aside>
+            </div>
+    </section>
+    <section>
         <div class="album-section">
-            <h3>C30-C39</h3>
-            <p id="p"><strong>Data premiery:</strong> 2016-11-18</p>
-            <p id="p"><strong>Wydawca:</strong> 700Blond Records</p>
-            <h4>Tracklista:</h4>
-            <ol class="tracklist">
-                <li>C30-C39</li>
-                <li>Eurogeddon</li>
-                <li>2016</li>
-                <li>Podróże po orbitach (Mixtape Version)</li>
-                <li>Ground Zero</li>
-                <li>Flava w twojej twarzy (Mixtape Version)</li>
-                <li>1996 (Mixtape Version)</li>
-                <li>Outro 2016</li>
-            </ol>
-        </div>
-
-        <div class="album-section">
+            <aside>
             <h3>Ground Zero</h3>
             <p id="p"><strong>Data premiery:</strong> 2018-11-09</p>
             <p id="p"><strong>Wydawca:</strong> 700Blond Records / Sony Music Poland</p>
@@ -98,9 +103,11 @@
                 <li>1996 (Album Version)</li>
                 <li>Outro Ground Zero</li>
             </ol>
+            </aside>
         </div>
 
         <div class="album-section">
+            <aside>
             <h3>Fight Club</h3>
             <p id="p"><strong>Data premiery:</strong> 2020-11-13</p>
             <p id="p"><strong>Wydawca:</strong> Sony Music Poland</p>
@@ -113,20 +120,24 @@
                 <li>1996 (Fight Club Version)</li>
                 <li>Outro Fight Club</li>
             </ol>
+            </aside>
         </div>
+    </section>    
 
-        <div class="album-section">
+        <div class="album-section_club">
+            <aside id="club">
             <h3>Re-Fight Club</h3>
             <p id="p"><strong>Data premiery:</strong> 2021-11-12 (reedycja Fight Club)</p>
             <p id="p"><strong>Wydawca:</strong> Sony Music Poland</p>
             <p id="p"><strong>Tracklista:</strong> Rozszerzona wersja Fight Club z dodatkowymi remiksami i utworami bonusowymi (szczegóły zależne od edycji).</p>
+            </aside>
         </div>
     </section>
 
+    <h2>Mixtape'y i EP-ki</h2>
     <section>
-        <h2>Mixtape'y i EP-ki</h2>
-        
         <div class="album-section">
+            <aside>
             <h3>Mixtape PRO8L3M</h3>
             <p id="p"><strong>Data premiery:</strong> 2013</p>
             <p id="p"><strong>Wydawca:</strong> Self-released</p>
@@ -138,58 +149,57 @@
                 <li>1996</li>
                 <li>Outro Mixtape</li>
             </ol>
+            </aside>
         </div>
 
         <div class="album-section">
-            <h3>EP: Eurogeddon</h3>
-            <p id="p"><strong>Data premiery:</strong> 2017</p>
-            <p id="p"><strong>Wydawca:</strong> 700Blond Records</p>
-            <h4>Tracklista:</h4>
-            <ol class="tracklist">
-                <li>Eurogeddon</li>
-                <li>2017</li>
-                <li>Bonus Track: Ground Zero (Demo)</li>
-            </ol>
+        <aside>
+        <h3>EP: Eurogeddon</h3>
+        <p id="p"><strong>Data premiery:</strong> 2017</p>
+        <p id="p"><strong>Wydawca:</strong> 700Blond Records</p>
+        <h4>Tracklista:</h4>
+        <ol class="tracklist">
+            <li>Eurogeddon</li>
+            <li>2017</li>
+            <li>Bonus Track: Ground Zero (Demo)</li>
+        </ol>
+        </aside>
         </div>
     </section>
-
-    <section>
+    <section id="single">
         <h2>Wybrane single i współprace</h2>
-        <div class="album-section">
-            <ul class="single-list">
-                <li><strong>2014:</strong> "Art Brut" (single z albumu)</li>
-                <li><strong>2016:</strong> "C30-C39" (lead single)</li>
-                <li><strong>2018:</strong> "To nie był film" (feat. PRO8L3M) – z albumu Ground Zero</li>
-                <li><strong>2019:</strong> "VHS" (single promocyjny)</li>
-                <li><strong>2020:</strong> "Fight Club" (lead single)</li>
-                <li><strong>2021:</strong> "Re-Fight" (z reedycji)</li>
-                <li><strong>Współprace:</strong>
-                    <ul style="list-style-type: circle; padding-left: 20px;">
-                        <li>"Flava" z Białasem (2015, z albumu Białasa)</li>
-                        <li>"1996" remix z innymi artystami (różne wydania)</li>
-                        <li>"Ground Zero" feat. Taco Hemingway (nieoficjalna współpraca w koncertach)</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
         <h2>Inne wydawnictwa</h2>
-        <div class="album-section">
-            <ul class="single-list">
-                <li><strong>Kompilacje i reedycje:</strong> PRO8L3M pojawił się na wielu kompilacjach hip-hopowych w Polsce, np. "Raport z Oblężonego Miasta" (różne edycje).</li>
-                <li><strong>Live i bootlegi:</strong> Albumy live z koncertów (np. z festiwalu Open'er), ale nieoficjalne.</li>
-                <li><strong>Streaming:</strong> Cała dyskografia dostępna na Spotify, Apple Music i YouTube Music. Oficjalny kanał YouTube: PRO8L3M.</li>
-            </ul>
-        </div>
     </section>
-
-    <div class="note">
-        <strong>Uwaga:</strong> Dyskografia może być aktualizowana. Ostatnia aktualizacja: 2023. Źródła: Oficjalna strona PRO8L3M, Discogs, Wikipedia. Jeśli potrzebujesz linków do streamingu lub okładek, daj znać!
-    </div>
-
-
+    <aside id="inne">
+        <section>
+            <div class="album-section">
+                <ul class="single-list">
+                    <li><strong>2014:</strong> "Art Brut" (single z albumu)</li>
+                    <li><strong>2016:</strong> "C30-C39" (lead single)</li>
+                    <li><strong>2018:</strong> "To nie był film" (feat. PRO8L3M) – z albumu Ground Zero</li>
+                    <li><strong>2019:</strong> "VHS" (single promocyjny)</li>
+                    <li><strong>2020:</strong> "Fight Club" (lead single)</li>
+                    <li><strong>2021:</strong> "Re-Fight" (z reedycji)</li>
+                    <li><strong>Współprace:</strong>
+                        <ul style="list-style-type: circle; padding-left: 20px;">
+                            <li>"Flava" z Białasem (2015, z albumu Białasa)</li>
+                            <li>"1996" remix z innymi artystami (różne wydania)</li>
+                            <li>"Ground Zero" feat. Taco Hemingway (nieoficjalna współpraca w koncertach)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <div class="album-section">
+                <ul class="single-list">
+                    <li><strong>Kompilacje i reedycje:</strong> PRO8L3M pojawił się na wielu kompilacjach hip-hopowych w Polsce, np. "Raport z Oblężonego Miasta" (różne edycje).</li>
+                    <li><strong>Live i bootlegi:</strong> Albumy live z koncertów (np. z festiwalu Open'er), ale nieoficjalne.</li>
+                    <li><strong>Streaming:</strong> Cała dyskografia dostępna na Spotify, Apple Music i YouTube Music. Oficjalny kanał YouTube: PRO8L3M.</li>
+                </ul>
+            </div>
+        </section>
+    </aside>
         </div>
     </main>
     <footer></footer>
